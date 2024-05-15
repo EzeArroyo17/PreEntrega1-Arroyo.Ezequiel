@@ -1,35 +1,33 @@
 import "./NavBar.css";
+import { Link } from "react-router-dom";
+import Contador from "../contador/ItemCount";
 
-import NavBarContainer from "./NavBarContainer"
-
-
-const NavBar = ({image, carrito, msj}) => {
+const NavBar = () => {
 
 
     return (
-        <>
-<NavBarContainer/>
-                <nav className="menuNavegable">
-                
-                    <div>
-                        <img className="logo" src={image} alt="" />
-                    </div>
-                    <ul>
-                        <li>
-                            <a href="#">Electrodomesticos, {msj}</a>
-                            <a href="#">Indumentaria</a>
-                            <a href="#">Jardin</a>
-                            <a href="#">Ofertas</a>
-                        </li>
-                    </ul>
+        <nav className="navBar">
 
-                    <div className="cardCarrito">
-                        <img src={carrito} alt="" />
-                        <p>1</p>
-                    </div>
-                </nav>
+            <Link to="/" className="imageNavbar">
+                <img className="iconNavbar" src="https://img3.stockfresh.com/files/v/vector1st/m/33/8997760_stock-vector-video-game-shop-theme-logo-template.jpg" />
+            </Link>
 
-        </>
+            <ul className="categoriesNavbar">
+                <Link to="/category/Accion" className="categorieNavbar">
+                    Accion
+                </Link>
+                <Link to="/category/Rol" className="categorieNavbar">
+                    Deportes
+                </Link>
+                <Link to="/category/Survival" className="categorieNavbar">
+                    Aventura
+                </Link>
+            </ul>
+
+            <Link className="Count">
+                <Contador stock={4} />
+            </Link>
+        </nav>
     )
 }
 
