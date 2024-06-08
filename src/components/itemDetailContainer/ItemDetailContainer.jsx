@@ -1,28 +1,35 @@
 import { useState, useEffect } from "react";
-import getProduct from "../../data/data";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import Loading from "../Loading/Loading.jsx";
+import db from "../../db/db.js";
+
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState({});
-  const { idProduct } = useParams()
+  const [loading, setLoading] = useState(false);
+
+  const { idProduct } = useParams();
+
+  const getProduct = () => {
+    setLoading(true);
+
+    const productRef = doc(db, "products", idProduct);
+    getDoc(productRef)
+      .then((productDb) => {
+        //formateamos correctamente nuestro producto
+        const data = { id: productDb.id, ...productDb.data() };
+        setProduct(data);
+      })
+      .finally(() => setLoading(false));
+  };
 
   useEffect(() => {
-    getProduct()
-      .then((respuesta) => {
-        const productFind = respuesta.find( (productRes) => productRes.id === idProduct );
-        setProduct(productFind);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        console.log("Finalo la promesa");
-      });
+    getProduct();
   }, [idProduct]);
 
-  return (
-    <ItemDetail product={product} />
-  );
+  return loading ? <Loading /> : <ItemDetail product={product} />;
+  
 };
 export default ItemDetailContainer;

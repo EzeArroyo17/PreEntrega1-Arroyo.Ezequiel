@@ -4,14 +4,9 @@ const Item = ({ product }) => {
 
   return (
     <div className="item">
-          <img src={product.image}
-            className="image-item" />
-            
-          <div className="content-item">
-            <p>{product.name}</p>
-            <p>Precio:{product.price}</p>
-            <Link to={`/detail/${product.id}`} className="button-item" > ver detalles </Link>
-          </div>
+        <Link className="item" to={`/detail/${product.id}`}>
+      <img className="image-item" src={product.image}/>
+    </Link>
         </div>
   )
 }

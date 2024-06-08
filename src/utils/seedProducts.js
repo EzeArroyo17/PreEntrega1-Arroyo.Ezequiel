@@ -1,13 +1,8 @@
+//este archivo sube todos los datos directamente y te ahorra la tarea de subir producto por producto
+import db from "../db/db.js"
+import { addDoc, collection } from "firebase/firestore"
+
 const products = [
-    {
-        id: "accion.1",
-        name: "Assassin`s Creed",
-        descriptcion:"Assassin's Creed es una serie de videojuegos de acción y aventura desarrollada por Ubisoft. El juego se centra en una lucha ancestral entre los Asesinos, que buscan la libertad y la justicia, y los Templarios, que buscan el control y el orden.",
-        price: 1000,
-        stock: 5,
-        category: "accion",
-        image: "/image/accion/AssasingCreed.jpg",
-    },
     {
         id: "accion.2",
         name: "PUGB",
@@ -41,8 +36,8 @@ const products = [
         descriptcion:"eFootbal es un videojuego de fútbol desarrollado y publicado por Konami. Es una evolución de la serie de juegos de fútbol de larga duración de Konami, que anteriormente se conocía como Pro Evolution Soccer o PES. eFootball se distingue por su enfoque en el juego en línea y su modelo de negocio gratuito para jugar. Ofrece partidos de fútbol realistas con una jugabilidad enfocada en la simulación y la estrategia.",
         price: "GRATIS",
         stock: 100,
-        categy: "deportes",
-        image: "/image/deportes/Efootball.jpg",
+        category: "deportes",
+        image: "/image/deportes/Efootball.png",
     },
     {
         id: "deportes.2",
@@ -54,3 +49,11 @@ const products = [
         image: "/image/deportes/NBA2K.jpg",
     },
 ]
+
+const seedProducts = () =>{
+    products.map (({id, ...rest}) =>{//aca se estrae el id de cada objeto y se sube el resto de la info
+        addDoc(collection(db,"products"), rest)
+    })
+}
+
+seedProducts()

@@ -1,7 +1,8 @@
 .item-detail {
     width: 100%;
-    min-height: 95vh;
     display: flex;
+    background-color: #0b1e42;
+    color: white;
 }
 
 .image-detail {
@@ -10,7 +11,9 @@
 }
 
 .image-detail img {
-    width: 100%;
+    width: 500px;
+    height: 750px;
+    object-fit: cover;
 }
 
 .content-detail {
@@ -24,4 +27,15 @@
 
 .text-detail {
     font-size: 20px;
+}
+
+.button-cart {
+    color: rgb(255, 254, 254);
+    background-color: rgb(61, 61, 61);
+    border: none;
+    width: 200px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-decoration: none;
 }

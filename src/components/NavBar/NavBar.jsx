@@ -1,6 +1,8 @@
-import "./NavBar.css";
 import { Link } from "react-router-dom";
-import Contador from "../contador/ItemCount";
+
+import CartWidget from "./CartWidget";
+
+import "./NavBar.css";
 
 const NavBar = () => {
 
@@ -13,19 +15,19 @@ const NavBar = () => {
             </Link>
 
             <ul className="categoriesNavbar">
-                <Link to="/category/Accion" className="categorieNavbar">
+                <Link to="/category/accion" className="categorieNavbar">
                     Accion
                 </Link>
-                <Link to="/category/Rol" className="categorieNavbar">
+                <Link to="/category/deportes" className="categorieNavbar">
                     Deportes
                 </Link>
-                <Link to="/category/Survival" className="categorieNavbar">
+                <Link to="/category/aventura" className="categorieNavbar">
                     Aventura
                 </Link>
             </ul>
 
-            <Link className="Count">
-                <Contador stock={4} />
+            <Link>
+                <CartWidget/>
             </Link>
         </nav>
     )
