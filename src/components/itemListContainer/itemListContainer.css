@@ -1,7 +1,8 @@
 .item-list-container {
     padding: 10px 50px;
-    background-color: #0b1e42;
+    background-color: #02122e;
     color: white;
+     font-family: sans-serif;
 }
 
 .title-item-list-container {

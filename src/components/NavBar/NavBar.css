@@ -3,7 +3,8 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    background-color:#090f41 ;
+    background-color:#050927 ;
+    font-family: sans-serif;
 
     .imageNavbar {
 
@@ -24,7 +25,8 @@
             font-family: sans-serif;
             text-decoration: none;
             color: white;
-            font-size: 20px;
+            font-size: 21px;
+            font-weight:500;
         }
     }
     .count{

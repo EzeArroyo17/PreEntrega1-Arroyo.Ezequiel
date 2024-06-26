@@ -2,6 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    font-family: sans-serif;
+    background-color: #02122e;
+    color: white;
   }
   .itemcount{
     display: flex;

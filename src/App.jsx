@@ -11,16 +11,16 @@ import "./App.css";
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  return (
+  return ( 
     <BrowserRouter>
       <CartProvider>
         <NavBar />
         <ToastContainer theme="dark" />
         <Routes>
           <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:idCategory" element={<ItemListContainer />} />
-          <Route path="/detail/:idProduct" element={<ItemDetailContainer />} />
-          <Route path="/Cart" element={<Cart />} />
+          <Route path="/category/:idCategory" element={<ItemListContainer/>} />
+          <Route path="/detail/:idProduct" element={<ItemDetailContainer/>} />
+          <Route path="/Cart" element={<Cart/>} />
           <Route path="/checkout" element={<Checkout/> } />
         </Routes>
       </CartProvider>

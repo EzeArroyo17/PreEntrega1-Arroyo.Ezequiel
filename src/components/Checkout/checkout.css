@@ -5,16 +5,22 @@
     justify-content: center;
     align-items: center;
     font-size: 25px;
-    background-color: black;
+    color: white;
+    background-color: #02122e;
+    font-family: sans-serif;
   }
   .form-checkout{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .box-input{
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
   }
   .box-input input{
     margin-top: 5px;
